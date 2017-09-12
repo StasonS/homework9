@@ -1,0 +1,60 @@
+import java.util.LinkedList;
+
+/**
+ * Created by user on 20.08.17.
+ */
+public class MyLinkedList<T> {
+
+    private Node<T> first;
+    private Node<T> last;
+    private int size = 0;
+
+    public MyLinkedList(){
+    }
+
+    public void add(T item){
+        if (first == null){
+            first = new Node<T>(null, item, null);
+            last = first;
+        }
+        else {
+            Node<T> node = new Node<T>(last, item, null);
+            last.next = node;
+            last = node;
+        }
+        size++;
+    }
+
+    public void remove(int index){
+
+        Node node = first;
+        for (int i = 0; i < index; i++){
+            node = node.next;
+        }
+        Node prev = node.prev;
+        Node next = node.next;
+        prev.next = next;
+        next.prev = prev;
+        node = null;
+        size--;
+    }
+
+    public void clear(){
+        first = null;
+        last = null;
+        size = 0;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public T get(int index){
+        Node node = first;
+        for (int i = 0; i < index; i++){
+            node = node.next;
+        }
+        return (T)node.item;
+    }
+
+}
