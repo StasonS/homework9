@@ -1,4 +1,3 @@
-import java.util.HashMap;
 
 /**
  * Created by user on 10.09.17.
@@ -6,8 +5,8 @@ import java.util.HashMap;
 public class MyHashMap<K, V> {
 
     private int size = 0;
-    Node<K, V> firstElement;
-    Node<K, V> lastElement;
+    private Node<K, V> firstElement;
+    private Node<K, V> lastElement;
 
     void put(K key, V value){
         if (this.containsKey(key)){
